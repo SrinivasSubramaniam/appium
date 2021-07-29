@@ -7,6 +7,7 @@ import chai from 'chai';
 
 const should = chai.should();
 
+// these paths should not make assumptions about the current working directory
 const FIXTURE_DIR = path.join(__dirname, 'fixtures');
 const ALLOW_FIXTURE = path.join(FIXTURE_DIR, 'allow-feat.txt');
 const DENY_FIXTURE = path.join(FIXTURE_DIR, 'deny-feat.txt');
@@ -75,7 +76,7 @@ describe('Server Parser', function () {
     p.parse_args(['--deny-insecure', 'foo,bar']).denyInsecure.should.eql(['foo', 'bar']);
     p.parse_args(['--deny-insecure', 'foo ,bar']).denyInsecure.should.eql(['foo', 'bar']);
   });
-  it('should parse --allow and --deny insecure from files', function () {
+  it('should parse --allow-insecure & --deny-insecure from files', function () {
     const parsed = p.parse_args([
       '--allow-insecure', ALLOW_FIXTURE, '--deny-insecure', DENY_FIXTURE
     ]);
