@@ -10,9 +10,7 @@ import { PROJECT_ROOT as cwd } from './helpers';
 chai.should();
 chai.use(chaiAsPromised);
 
-// cannot use `require.resolve()` here (w/o acrobatics) due to the ESM context.
-// could also derive it from the `package.json` if we wanted
-const executable = path.join(cwd, 'packages', 'appium', 'build', 'lib', 'main.js');
+const executable = require.resolve('../build/lib/main.js');
 
 describe('CLI', function () {
   let appiumHome;
