@@ -5,7 +5,7 @@ version: 2
 cli:
   server: https://app.fossa.com
   fetcher: custom
-  project: https://github.com/appium/appium.git
+  project: git@github.com/appium/appium
 analyze:
   modules:
     - name: appium-monorepo
